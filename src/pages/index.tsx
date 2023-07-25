@@ -1,4 +1,7 @@
+import { useState } from 'react'
+
 import { CreateTodoForm } from '@/client/components/CreateTodoForm'
+import { StatusTagList } from '@/client/components/StatusTagList'
 import { TodoList } from '@/client/components/TodoList'
 
 /**
@@ -17,6 +20,12 @@ import { TodoList } from '@/client/components/TodoList'
  */
 
 const Index = () => {
+  const [targetStatus, setTargetStatus] = useState('all')
+
+  const handleChangeStatusTag = (status: string) => {
+    setTargetStatus(status)
+  }
+
   return (
     <main className="mx-auto w-[480px] pt-12">
       <div className="rounded-12 bg-white p-8 shadow-sm">
@@ -25,7 +34,14 @@ const Index = () => {
         </h1>
 
         <div className="pt-10">
-          <TodoList />
+          <StatusTagList
+            targetStatus={targetStatus}
+            handleChangeStatusTag={handleChangeStatusTag}
+          />
+        </div>
+
+        <div className="pt-10">
+          <TodoList targetStatus={targetStatus} />
         </div>
 
         <div className="pt-10">

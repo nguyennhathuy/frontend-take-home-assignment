@@ -53,7 +53,7 @@ export const CreateTodoForm = () => {
       />
 
       <button
-        type="button"
+        type="submit"
         disabled={isCreatingTodo}
         onClick={() => {
           createTodo({
@@ -61,6 +61,7 @@ export const CreateTodoForm = () => {
           })
           setTodoBody('')
         }}
+        className="rounded-full bg-gray-700 px-5 py-2 font-sans text-white"
       >
         Add
       </button>

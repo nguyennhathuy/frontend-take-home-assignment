@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { TRPCError } from '@trpc/server'
 import { z } from 'zod'
 
